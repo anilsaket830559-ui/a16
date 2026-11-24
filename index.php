@@ -82,6 +82,45 @@
     <div class="ftr-grid cols3"><div><a class="logo" href="./"><svg viewBox="0 0 44 44" aria-hidden="true"><circle cx="22" cy="24" r="14" fill="#8C2F27"/><circle cx="22" cy="24" r="7" fill="#F2E3C8"/><path d="M22 6v6M14 8l2 5M30 8l-2 5" stroke="#D98E2B" stroke-width="2.6" stroke-linecap="round"/></svg><span><b>Roastly</b><small>ROAST &middot; PORTION &middot; SERVE</small></span></a><p>A home-cooking site about dinner for other people: roasting times you can trust, portions that are neither mean nor wasteful, and a timeline that gets everything hot at once.</p><div class="fcon"><p>181 Mercer Street, New York, NY 10012, United States</p><a href="tel:+18887775845">+1-888-777-5845</a><a href="mailto:hello@roastly.com">hello@roastly.com</a><a href="contact.html">Contact page</a></div></div><div><h4>Roast &amp; host</h4><a href="roasting-guide.html">Roasting Guide</a><a href="dinner-party-guide.html">Hosting Guide</a><a href="./#roast">Roast Timer</a><a href="./#portion">Portion Planner</a><a href="./#plan">Dinner Timeline</a></div><div><h4>Policies</h4><a href="privacy-policy.html">Privacy Policy</a><a href="terms-and-conditions.html">Terms &amp; Conditions</a><a href="cookie-policy.html">Cookie Policy</a><a href="disclaimer.html">Disclaimer</a><a href="editorial-policy.html">Editorial Policy</a></div></div>
     <div class="ftr-base"><span>&copy; <span id="year">2026</span> Roastly. All rights reserved.</span></div>
   </div>
+  <div id="loader" style="
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0,0,0,0.5);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;">
+  <div id="spinner" style="
+      width: 50px;
+      height: 50px;
+      border: 5px solid #f3f3f3;
+      border-top: 5px solid #3498db;
+      border-radius: 50%;
+      animation: spin 1s linear infinite;">
+  </div>
+</div>
+
+<style>
+  @keyframes spin { to { transform: rotate(360deg); } }
+</style>
+
+<script>
+  const loader = document.getElementById('loader');
+
+  function showLoader() { loader.style.display = 'flex'; }
+  function hideLoader() { loader.style.display = 'none'; }
+
+  async function fetchData() {
+    showLoader();
+    try {
+      await new Promise(r => setTimeout(r, 4000)); // 4 sec
+    } finally {
+      hideLoader();
+    }
+  }
+  fetchData();
+</script>
+
 </footer>
 <div class="cookie" id="cookie" role="dialog" aria-label="Cookie notice"><p>We use essential storage and, with your consent, cookies for our live chat and any ads shown on the site. <a href="cookie-policy.html">Cookie Policy</a></p><button class="y" data-cookie="accepted">Accept</button><button data-cookie="declined">Essential only</button></div>
 <script src="assets/js/main.js" defer></script>
